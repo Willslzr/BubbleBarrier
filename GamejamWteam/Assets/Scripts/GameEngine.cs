@@ -8,6 +8,7 @@ public class GameEngine : MonoBehaviour
     public float oxigeno = 20; // Valor inicial de oxígeno
     public float cantidadOxigenoAumentar = 10; // Cantidad de oxígeno a sumar
     private bool isGameOver = false; // Bandera para controlar el estado del juego
+    private float tiempoSobrevivido = 0f; // Variable para rastrear el tiempo transcurrido
 
     void Start()
     {
@@ -18,6 +19,9 @@ public class GameEngine : MonoBehaviour
     {
         // Si el juego ya está en estado "Game Over", no continuar
         if (isGameOver) return;
+
+        // Incrementar el tiempo transcurrido
+        tiempoSobrevivido += Time.deltaTime;
 
         // Disminuir el oxígeno cada segundo
         oxigeno -= Time.deltaTime;
@@ -43,6 +47,10 @@ public class GameEngine : MonoBehaviour
     {
         isGameOver = true; // Cambiar la bandera a "Game Over"
         Time.timeScale = 0; // Pausar el juego
-        // Aquí va a ir la lógica adicional para mostrar un menú de "Game Over"
+
+        // Mostrar el tiempo sobrevivido
+        Debug.Log("Tiempo sobrevivido: " + tiempoSobrevivido.ToString("F2") + " segundos");
+        
     }
+
 }
