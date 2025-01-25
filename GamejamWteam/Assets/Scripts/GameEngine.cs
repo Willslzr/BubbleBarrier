@@ -50,6 +50,7 @@ public class GameEngine : MonoBehaviour
 
         // Mostrar el tiempo sobrevivido
         Debug.Log("Tiempo sobrevivido: " + tiempoSobrevivido.ToString("F2") + " segundos");
+
         
     }
 
