@@ -4,40 +4,34 @@ using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public AudioSource audioPlayer; // Componente AudioSource
+    public AudioClip bubbleSound;   // Sonido para las burbujas
+    public AudioClip fishSound;     // Sonido para los peces
 
     public GameEngine gameEngine;
-    void Start()
-    {
-        
-    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Detecta si la colisión es con un objeto de tipo "Burbuja"
         if (collision.gameObject.CompareTag("Bubble"))
         {
-            // Llama a la función AddOxigen() si la referencia es válida
-            if (gameEngine != null)
-            {
-                gameEngine.AddOxigen();
-            }
-            else
-            {
-                Debug.LogWarning("No se pudo llamar a AddOxigen porque GameEngine no está inicializado.");
-            }
-
+            gameEngine.AddOxigen();
             Destroy(collision.gameObject); // Destruye la burbuja
+
+            // Reproducir sonido de burbuja
+            audioPlayer.clip = bubbleSound;
+            audioPlayer.Play();
         }
 
+        // Detecta si la colisión es con un objeto de tipo "Pez"
         if (collision.gameObject.CompareTag("Fish"))
         {
             Debug.Log("Te comio un pez, perdiste");
             gameEngine.GameOver();
+
+            // Reproducir sonido de pez
+            audioPlayer.clip = fishSound;
+            audioPlayer.Play();
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
