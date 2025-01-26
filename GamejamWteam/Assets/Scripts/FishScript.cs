@@ -83,9 +83,27 @@ public class FishScript : MonoBehaviour
 
     private IEnumerator AttackUpwards()
     {
+        // Realizar el giro de 90 grados en el eje Z
+        Quaternion initialRotation = transform.rotation; // Rotación inicial
+        Quaternion targetRotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0f, 0f, 90f)); // Rotación objetivo
+
+        float rotationDuration = 0.2f; // Duración del giro (en segundos)
+        float elapsedRotationTime = 0f;
+
+        // Interpolar suavemente la rotación hacia el objetivo
+        while (elapsedRotationTime < rotationDuration)
+        {
+            transform.rotation = Quaternion.Slerp(initialRotation, targetRotation, elapsedRotationTime / rotationDuration);
+            elapsedRotationTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Asegurarse de que la rotación final sea exactamente la deseada
+        transform.rotation = targetRotation;
+
+        // Movimiento hacia arriba a gran velocidad
         while (true)
         {
-            // Moverse hacia arriba a gran velocidad
             transform.position += Vector3.up * attackSpeed * Time.deltaTime;
             yield return null;
         }

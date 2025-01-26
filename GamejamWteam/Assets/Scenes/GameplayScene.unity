@@ -452,7 +452,7 @@ Transform:
   m_GameObject: {fileID: 91215855}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.43, z: 0}
+  m_LocalPosition: {x: 0, y: 4.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -635,7 +635,7 @@ SpriteRenderer:
   m_Size: {x: 10.5, y: 3.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &213979125
@@ -1022,6 +1022,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 63201369}
+  - {fileID: 1318336722}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1579,6 +1580,7 @@ MonoBehaviour:
   oxigeno: 20
   cantidadOxigenoAumentar: 10
   gameOverScreen: {fileID: 63201372}
+  oxygenText: {fileID: 1318336724}
 --- !u!1 &738377867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,7 +1776,7 @@ SpriteRenderer:
   m_Size: {x: 0.68, y: 0.71}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &953113286
@@ -2049,7 +2051,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.08, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 91215856}
@@ -2134,13 +2136,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.5, y: 3.5}
-    newSize: {x: 0.68, y: 0.71}
+    oldSize: {x: 10.255723, y: 1.26}
+    newSize: {x: 10.255723, y: 1.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 10.5, y: 3.5}
+  m_Size: {x: 10.255723, y: 1.26}
   m_EdgeRadius: 0
 --- !u!212 &1226051943
 SpriteRenderer:
@@ -2185,12 +2187,12 @@ SpriteRenderer:
   m_SortingLayerID: -935528539
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7294014354058790825, guid: 959760f67ec49d94992717e60e5078c2, type: 3}
+  m_Sprite: {fileID: -2185379571699175389, guid: 5ef7ee3b2eb139f4a8c7c53eaf9d8f43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.68, y: 0.71}
+  m_Size: {x: 10.255723, y: 1.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2208,7 +2210,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e50172e26f96aaf46be3d615e8d082f6, type: 3}
   m_Resource: {fileID: 8300000, guid: e50172e26f96aaf46be3d615e8d082f6, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2293,6 +2295,85 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1318336721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1318336722}
+  - component: {fileID: 1318336725}
+  - component: {fileID: 1318336724}
+  m_Layer: 5
+  m_Name: Oxygen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1318336722
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318336721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 500487136}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.2427, y: 227.03555}
+  m_SizeDelta: {x: 265.1146, y: 21.1289}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1318336724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318336721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Oxygen:'
+--- !u!222 &1318336725
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318336721}
+  m_CullTransparentMesh: 1
 --- !u!1 &1489376267
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,7 +2592,7 @@ SpriteRenderer:
   m_Size: {x: 0.68, y: 0.71}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &1535913318
@@ -2671,8 +2752,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44400b6e47f7064499eb331f926dbc49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefab: {fileID: 2593053487456466762, guid: fbdc4f02788211f48a766758279d79ab, type: 3}
-  maxSpawnInterval: 4
+  fish1Prefab: {fileID: 2593053487456466762, guid: fbdc4f02788211f48a766758279d79ab, type: 3}
+  fish2Prefab: {fileID: 4653730155894360245, guid: f480fbeea2ab30a4eaa8d90cece9d3bc, type: 3}
+  fish3Prefab: {fileID: 4653730155894360245, guid: 5d862ba4fddc69748a9c6c12a0749f2b, type: 3}
+  fish1MaxSpawnInterval: 4
+  fish2MinSpawnInterval: 5
+  fish2MaxSpawnInterval: 9
+  fish3MinSpawnInterval: 6
+  fish3MaxSpawnInterval: 12
 --- !u!4 &2093441382
 Transform:
   m_ObjectHideFlags: 0

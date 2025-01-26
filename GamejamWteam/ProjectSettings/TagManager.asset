@@ -8,6 +8,7 @@ TagManager:
   - Bubble
   - TopLimit
   - Fish
+  - Oxygen
   layers:
   - Default
   - TransparentFX

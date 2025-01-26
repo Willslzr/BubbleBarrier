@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameEngine : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameEngine : MonoBehaviour
     private bool isGameOver = false; // Bandera para controlar el estado del juego
     private float tiempoSobrevivido = 0f; // Variable para rastrear el tiempo transcurrido
     public GameOverScreen gameOverScreen;
+    public Text oxygenText; // Referencia al componente Text del objeto Oxygen
 
     void Start()
     {
@@ -26,6 +28,9 @@ public class GameEngine : MonoBehaviour
 
         // Disminuir el oxígeno cada segundo
         oxigeno -= Time.deltaTime;
+
+        // Actualizar el texto del oxígeno en pantalla
+        UpdateOxygenText();
 
         // Verificar si el oxígeno se agotó
         if (oxigeno <= 0)
@@ -53,6 +58,15 @@ public class GameEngine : MonoBehaviour
         Debug.Log("Tiempo sobrevivido: " + tiempoSobrevivido.ToString("F2") + " segundos");
 
         gameOverScreen.Setup(tiempoSobrevivido);
+    }
+
+    // Método para actualizar el texto del oxígeno
+    private void UpdateOxygenText()
+    {
+        if (oxygenText != null)
+        {
+            oxygenText.text = $"Time: {tiempoSobrevivido:F2} s | Oxygen: {oxigeno:F2}";
+        }
     }
 
 }
