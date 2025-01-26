@@ -16,6 +16,8 @@ public class GameEngine : MonoBehaviour
     void Start()
     {
         BubbleMaker.GetComponent<BubbleMaker>().isActive = true;
+        isGameOver = false;
+        Time.timeScale = 1;
     }
 
     void Update()
