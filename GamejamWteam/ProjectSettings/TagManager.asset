@@ -9,6 +9,7 @@ TagManager:
   - TopLimit
   - Fish
   - Oxygen
+  - FishBomb
   layers:
   - Default
   - TransparentFX

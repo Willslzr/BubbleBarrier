@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemiesMaker : MonoBehaviour
 {
-public GameObject fish1Prefab; // Prefabricado del pez 1
+    public GameObject fish1Prefab; // Prefabricado del pez 1
     public GameObject fish2Prefab; // Prefabricado del pez 2
     public GameObject fish3Prefab; // Prefabricado del pez 3
+    public GameObject fish4Prefab; // Prefabricado del pez 4
 
     public float fish1MaxSpawnInterval = 4f; // Máximo intervalo de generación para Fish1
     public float fish2MinSpawnInterval = 5f; // Mínimo intervalo de generación para Fish2
@@ -17,10 +18,16 @@ public GameObject fish1Prefab; // Prefabricado del pez 1
     private float fish1Timer = 0f;
     private float fish2Timer = 0f;
     private float fish3Timer = 0f;
+    private float fish4Timer = 0f; // Temporizador para Fish4
 
     private float fish1CurrentSpawnInterval;
     private float fish2CurrentSpawnInterval;
     private float fish3CurrentSpawnInterval;
+    private float fish4CurrentSpawnInterval = 30f; // Intervalo fijo de 30 segundos para Fish4
+
+    private float reductionTimer = 0f; // Temporizador para reducción de intervalos
+    private float reductionInterval = 10f; // Tiempo en segundos para reducir los intervalos
+    private float intervalReductionAmount = 0.5f; // Cantidad de reducción por ciclo
 
     void Start()
     {
@@ -32,6 +39,14 @@ public GameObject fish1Prefab; // Prefabricado del pez 1
 
     void Update()
     {
+        // Reducir los intervalos cada 10 segundos
+        reductionTimer += Time.deltaTime;
+        if (reductionTimer >= reductionInterval)
+        {
+            ReduceSpawnIntervals();
+            reductionTimer = 0f;
+        }
+
         // Temporizador para Fish1
         fish1Timer += Time.deltaTime;
         if (fish1Timer >= fish1CurrentSpawnInterval)
@@ -58,6 +73,28 @@ public GameObject fish1Prefab; // Prefabricado del pez 1
             fish3Timer = 0f;
             SetRandomSpawnIntervalFish3();
         }
+
+        // Temporizador para Fish4 (con un intervalo fijo de 30 segundos)
+        fish4Timer += Time.deltaTime;
+        if (fish4Timer >= fish4CurrentSpawnInterval)
+        {
+            SpawnFish(fish4Prefab);
+            fish4Timer = 0f; // Reiniciar temporizador de Fish4
+        }
+    }
+
+    void ReduceSpawnIntervals()
+    {
+        // Reducir los intervalos para Fish1
+        fish1MaxSpawnInterval = Mathf.Max(3f, fish1MaxSpawnInterval - intervalReductionAmount);
+
+        // Reducir los intervalos para Fish2
+        fish2MinSpawnInterval = Mathf.Max(1f, fish2MinSpawnInterval - intervalReductionAmount);
+        fish2MaxSpawnInterval = Mathf.Max(3f, fish2MaxSpawnInterval - intervalReductionAmount);
+
+        // Reducir los intervalos para Fish3
+        fish3MinSpawnInterval = Mathf.Max(1f, fish3MinSpawnInterval - intervalReductionAmount);
+        fish3MaxSpawnInterval = Mathf.Max(3f, fish3MaxSpawnInterval - intervalReductionAmount);
     }
 
     void SpawnFish(GameObject fishPrefab)
